@@ -7,6 +7,7 @@ import (
 	"log"
 	"strings"
 )
+//https://raw.githubusercontent.com/datasets/airport-codes/master/data/airport-codes.csv
 
 func main() {
 	in := `KMPV,medium_airport,Edward F Knapp State Airport,1166,NA,US,US-VT,Barre/Montpelier,KMPV,MPV,MPV,"-72.56230164, 44.20349884"
@@ -49,6 +50,13 @@ KMUL,small_airport,Spence Airport,292,NA,US,US-GA,Moultrie,KMUL,,MUL,"-83.704101
 KMUO,large_airport,Mountain Home Air Force Base,2996,NA,US,US-ID,Mountain Home,KMUO,MUO,MUO,"-115.872002, 43.043598"
 KMUT,small_airport,Muscatine Municipal Airport,547,NA,US,US-IA,Muscatine,KMUT,,MUT,"-91.14820098876953, 41.367801666259766"
 KMUU,closed,Huntingdon County Airport,,NA,US,US-PA,,KMUU,,,"-77.862478, 40.329182"
+KJFK,large_airport,John F Kennedy International Airport,13,NA,US,US-NY,New York,KJFK,JFK,JFK,"-73.77890015, 40.63980103"
+VTBS,large_airport,Suvarnabhumi Airport,5,AS,TH,TH-10,Bangkok,VTBS,BKK,,"100.74700164794922, 13.681099891662598"
+KLAX,large_airport,Los Angeles International Airport,125,NA,US,US-CA,Los Angeles,KLAX,LAX,LAX,"-118.4079971, 33.94250107"
+EGLL,large_airport,London Heathrow Airport,83,EU,GB,GB-ENG,London,EGLL,LHR,,"-0.461941, 51.4706"
+KORD,large_airport,Chicago O'Hare International Airport,672,NA,US,US-IL,Chicago,KORD,ORD,ORD,"-87.9048, 41.9786"
+KDFW,large_airport,Dallas Fort Worth International Airport,607,NA,US,US-TX,Dallas-Fort Worth,KDFW,DFW,DFW,"-97.038002, 32.896801"
+WSSS,large_airport,Singapore Changi Airport,22,AS,SG,SG-04,Singapore,WSSS,SIN,,"103.994003, 1.35019"
 KMVC,small_airport,Monroe County Aeroplex Airport,419,NA,US,US-AL,Monroeville,KMVC,MVC,MVC,"-87.350996, 31.458"`
 	r := csv.NewReader(strings.NewReader(in))
 	airportMap := make(map[string]string)
@@ -61,7 +69,7 @@ KMVC,small_airport,Monroe County Aeroplex Airport,419,NA,US,US-AL,Monroeville,KM
 			log.Fatal(err)
 		}
 
-		airportMap[record[10]] = record[7]
+		airportMap[record[9]] = record[7]
 		fmt.Println(record)
 
 	}
